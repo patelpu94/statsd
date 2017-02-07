@@ -265,9 +265,9 @@ config.configFile(process.argv[2], function (config) {
               gauges[key] += Number(fields[0] || 0);
             } else {
               gauges[key] = Number(fields[0] || 0);
-              if (idleGauges[key]) {
+              if ((idleGauges[key]) && (fields[0].match(/^[-+]/))) {
                   if (gauges[key] != 0) {
-                      gauges[key] += idleGauges[key];
+                     gauges[key] += idleGauges[key];
                   }
               }
             }
